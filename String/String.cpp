@@ -5,6 +5,7 @@
 
 #include "String.h"
 #include "../Standard/Standard.h"
+
 namespace inhouse
 {
 	String::String()
@@ -24,7 +25,6 @@ namespace inhouse
 
 		_string = new char[_length + 1];
 		memMove(_string, string, sizeof(char) * (_length+1));
-		println(_string);
 	}
 
 	String::~String()
@@ -37,7 +37,9 @@ namespace inhouse
 
 	char String::charAt(uint index)
 	{
-		return 0;
+		char errorMessage[] = "Index out of bounds";
+		error(index < _length, errorMessage);
+		return _string[index];
 	}
 
 	int String::compareTo(String& string)

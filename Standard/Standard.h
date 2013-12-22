@@ -13,6 +13,9 @@
 
 		void* memCopy(void* destination, void* source, int number);
 		void* memMove(void* destination, void* source, int number);
+
+		void error(bool passTest, char* string);
+		void error(bool passTest, String& string);
 	}
 
 #endif

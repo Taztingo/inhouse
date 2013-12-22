@@ -1,6 +1,7 @@
 #include "../String/String.h"
 #include "Standard.h"
 #include <unistd.h>
+#include <assert.h>
 
 namespace inhouse
 {
@@ -61,5 +62,23 @@ namespace inhouse
 		}
 
 		return destination;
+	}
+
+	void error(bool passTest, char* string)
+	{
+		char errorStatement[] = "An error has occurred: ";
+		
+		if(!passTest)
+		{
+			print(errorStatement);
+			println(string);
+		}
+
+		assert(passTest);
+	}
+
+	void error(bool passTest, String& string)
+	{
+		error(passTest, string.toString());
 	}
 }
