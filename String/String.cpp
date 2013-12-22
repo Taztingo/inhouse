@@ -108,6 +108,14 @@ namespace inhouse
 
 	int String::indexOf(char character)
 	{
+		for(uint i = 0; i < _length; i++)
+		{
+			if(_string[i] == character)
+			{
+				return i;
+			}
+		}
+
 		return -1;
 	}
 
