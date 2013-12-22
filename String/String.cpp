@@ -81,26 +81,9 @@ namespace inhouse
 
 	bool String::contains(String& string)
 	{
-		int length = string.length();
-
-		for(uint i = 0; (i + length - 1) < _length && _string[i]; i++)
+		if(indexOf(string) >= 0)
 		{
-			if(_string[i] == string[0])
-			{
-				bool totalMatch = true;
-				for(uint j = 1; j < string.length(); j++)
-				{
-					if(_string[i + j] != string[j])
-					{
-						totalMatch = false;
-					}
-				}
-
-				if(totalMatch)
-				{
-					return true;
-				}
-			}
+			return true;
 		}
 
 		return false;
@@ -121,6 +104,28 @@ namespace inhouse
 
 	int String::indexOf(String& string)
 	{
+		int length = string.length();
+
+		for(uint i = 0; (i + length - 1) < _length && _string[i]; i++)
+		{
+			if(_string[i] == string[0])
+			{
+				bool totalMatch = true;
+				for(uint j = 1; j < string.length(); j++)
+				{
+					if(_string[i + j] != string[j])
+					{
+						totalMatch = false;
+					}
+				}
+
+				if(totalMatch)
+				{
+					return i;
+				}
+			}
+		}
+
 		return -1;
 	}
 
