@@ -82,6 +82,16 @@
 		return _string;
 	}
 
+	char* String::toLowerCase()
+	{
+		return _string;
+	}
+
+	char* String::toCharArray()
+	{
+		return _string;
+	}
+
 	char* String::toString()
 	{
 		return _string;

@@ -33,6 +33,7 @@
 				uint length();
 				char* substring(uint begin, uint end);
 				char* toLowerCase();
+				char* toCharArray();
 				char* toString();
 				char* toUpperCase();
 				char* trim();
