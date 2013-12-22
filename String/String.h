@@ -30,7 +30,7 @@
 				bool isEmpty();
 				int lastIndexOf(char character);
 				int lastIndexOf(String& string);
-				int length();
+				uint length();
 				char* substring(uint begin, uint end);
 				char* toLowerCase();
 				char* toString();

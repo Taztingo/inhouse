@@ -64,7 +64,7 @@
 		return -1;
 	}
 
-	int String::length()
+	uint String::length()
 	{
 		return _length;
 	}
