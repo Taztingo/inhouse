@@ -6,8 +6,7 @@ namespace inhouse
 {
 	int print(String& string)
 	{
-		print(string.toString());
-		return 0;
+		return print(string.toString());
 	}
 	
 	int print(char* string)
@@ -18,7 +17,7 @@ namespace inhouse
 			string++;
 		}
 
-		return 0;
+		return (sizeof(string) / sizeof(char));
 	}
 
 	int printChar(char c)
