@@ -4,10 +4,10 @@
  */
 
 #include "String.h"
-
- namespace inhouse
- {
- 	String::String()
+#include "../Standard/Standard.h"
+namespace inhouse
+{
+	String::String()
 	{
 		_length = 0;
 
@@ -15,8 +15,16 @@
 
 	String::String(char string[])
 	{
-		_length = (sizeof(string) / sizeof(char));
+		_length = 0;
 
+		while(string[_length])
+		{
+			_length++;
+		}
+
+		_string = new char[_length + 1];
+		memMove(_string, string, sizeof(char) * (_length+1));
+		println(_string);
 	}
 
 	String::~String()
@@ -126,4 +134,4 @@
 	{
 		return _string;
 	}
- }
+}

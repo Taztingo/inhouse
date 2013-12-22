@@ -36,4 +36,30 @@ namespace inhouse
 	{
 		return write(1, &c, 1);
 	}
+
+	void* memCopy(void* destination, void* source, int number)
+	{
+		char* cDestination = (char*) destination;
+		char* cSource = (char*) source;
+
+		for(int i = 0; i < number; i++)
+		{
+			cDestination[i] = cSource[i];
+		}
+
+		return destination;
+	}
+
+	void* memMove(void* destination, void* source, int number)
+	{
+		char* cDestination = (char*) destination;
+		char* cSource = (char*) source;
+
+		for(int i = 0; i < number; i++)
+		{
+			cDestination[i] = cSource[i];
+		}
+
+		return destination;
+	}
 }

@@ -10,6 +10,9 @@
 		int println(String& string);
 		int println(char* string);
 		int printChar(char c);
+
+		void* memCopy(void* destination, void* source, int number);
+		void* memMove(void* destination, void* source, int number);
 	}
 
 #endif
