@@ -9,14 +9,22 @@
  {
  	String::String()
 	{
+		_length = 0;
+
 	}
 
 	String::String(char string[])
 	{
+		_length = (sizeof(string) / sizeof(char));
+
 	}
 
 	String::~String()
 	{
+		if(_string != nullptr)
+		{
+			delete _string;
+		}
 	}
 
 	char String::charAt(uint index)
