@@ -21,7 +21,7 @@
 				String(char string[]);
 				~String();
 			
-				char charAt(uint index);
+				char& charAt(uint index);
 				int compareTo(String& string);
 				int compareToIgnoreCase(String& string);
 				bool contains(String& string);
@@ -42,6 +42,7 @@
 				char* operator+(String& string);
 				char* operator+(int integer);
 				char* operator+(bool boolean);
+				char& operator[](uint index);
 		};
 	}
 

@@ -31,19 +31,46 @@ namespace inhouse
 	{
 		if(_string != nullptr)
 		{
+			_length = 0;
 			delete _string;
 		}
 	}
 
-	char String::charAt(uint index)
+	char& String::charAt(uint index)
 	{
 		char errorMessage[] = "Index out of bounds";
-		error(index < _length, errorMessage);
+		error(index <= _length, errorMessage);
 		return _string[index];
 	}
 
 	int String::compareTo(String& string)
 	{
+		int i = 0;
+
+		while(_string[i] && string[i])
+		{
+			if(_string[i] < string[i])
+			{
+				return -1;
+			}
+			else if(string[i] < _string[i])
+			{
+				return 1;
+			}
+
+			i++;
+		}
+
+		if(!_string[i] && string[i])
+		{
+			return -1;
+		}
+
+		if(!string[i] && _string[i])
+		{
+			return 1;
+		}
+
 		return 0;
 	}
 
@@ -135,5 +162,10 @@ namespace inhouse
 	char* String::operator+(bool boolean)
 	{
 		return _string;
+	}
+
+	char& String::operator[](uint index)
+	{
+		return charAt(index);
 	}
 }
