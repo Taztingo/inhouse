@@ -19,7 +19,7 @@
 				String(char[] string);
 				~String();
 			
-				char charAt(int index);
+				char charAt(unsigned int index);
 				int compareTo(String& string);
 				int compareToIgnoreCase(String& string);
 				bool contains(String& string);
@@ -29,7 +29,7 @@
 				int lastIndexOf(char character);
 				int lastIndexOf(String& string);
 				int length();
-				String& substring(int begin, int end);
+				String& substring(unsigned int begin, unsigned int end);
 				char[] toCharArray();
 				String& toLowerCase();
 				String& toString();
