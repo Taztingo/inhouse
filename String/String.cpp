@@ -11,11 +11,11 @@
 	{
 	}
 
-	String::String(char[] string)
+	String::String(char string[])
 	{
 	}
 
-	~String()
+	String::~String()
 	{
 	}
 
@@ -69,30 +69,24 @@
 		return _length;
 	}
 
-	String& String::substring(int begin, int end)
+	char* String::substring(uint begin, uint end)
 	{
-		return *_string;
+		return _string;
 	}
 
-	char[] String::toCharArray()
+	char* String::toString()
 	{
-		char blah[] = "";
-		return blah;
+		return _string;
 	}
 
-	String& String::toString()
+	char* String::toUpperCase()
 	{
-		return *_string;
+		return _string;
 	}
 
-	String& String::toUpperCase()
+	char* String::trim()
 	{
-		return *_string;
-	}
-
-	String& String::trim()
-	{
-		return *_string;
+		return _string;
 	}
 
 	bool String::operator==(String& string)
@@ -105,18 +99,18 @@
 		return string;
 	}
 
-	String& String::operator+(String& string)
+	char* String::operator+(String& string)
 	{
-		return *_string;
+		return _string;
 	}
 
-	String& String::operator+(int integer)
+	char* String::operator+(int integer)
 	{
-		return *_string;
+		return _string;
 	}
 
-	String& String::operator+(bool boolean)
+	char* String::operator+(bool boolean)
 	{
-		return *_string;
+		return _string;
 	}
  }

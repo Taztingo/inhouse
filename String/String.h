@@ -18,7 +18,7 @@
 
 			public:
 				String();
-				String(char[] string);
+				String(char string[]);
 				~String();
 			
 				char charAt(uint index);
@@ -31,18 +31,17 @@
 				int lastIndexOf(char character);
 				int lastIndexOf(String& string);
 				int length();
-				String& substring(uint begin, uint end);
-				char[] toCharArray();
-				String& toLowerCase();
-				String& toString();
-				String& toUpperCase();
-				String& trim();
+				char* substring(uint begin, uint end);
+				char* toLowerCase();
+				char* toString();
+				char* toUpperCase();
+				char* trim();
 
 				bool operator==(String& string);
 				String& operator=(String& string);
-				String& operator+(String& string);
-				String& operator+(String& integer);
-				String& operator+(bool boolean);
+				char* operator+(String& string);
+				char* operator+(int integer);
+				char* operator+(bool boolean);
 		};
 	}
 
