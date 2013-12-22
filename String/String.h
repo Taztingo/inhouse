@@ -6,12 +6,14 @@
 #ifndef STRING_H_
 	#define STRING_H_
 
+	#include "../Common/Common.h"
+
 	namespace inhouse
 	{
 		class String
 		{
 			private:
-				unsigned int _length;
+				uint _length;
 				char* _string;
 
 			public:
@@ -19,7 +21,7 @@
 				String(char[] string);
 				~String();
 			
-				char charAt(unsigned int index);
+				char charAt(uint index);
 				int compareTo(String& string);
 				int compareToIgnoreCase(String& string);
 				bool contains(String& string);
@@ -29,7 +31,7 @@
 				int lastIndexOf(char character);
 				int lastIndexOf(String& string);
 				int length();
-				String& substring(unsigned int begin, unsigned int end);
+				String& substring(uint begin, uint end);
 				char[] toCharArray();
 				String& toLowerCase();
 				String& toString();

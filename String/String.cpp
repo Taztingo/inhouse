@@ -19,7 +19,7 @@
 	{
 	}
 
-	char String::charAt(unsigned int index)
+	char String::charAt(uint index)
 	{
 		return 0;
 	}
