@@ -6,6 +6,7 @@ namespace inhouse
 {
 	int print(String& string)
 	{
+		print(string.toString());
 		return 0;
 	}
 	

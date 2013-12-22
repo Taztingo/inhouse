@@ -1,7 +1,7 @@
 #ifndef STANDARD_H_
 	#define STANDARD_H_
 
-	#include "../String/String.h"
+	class String;
 
 	namespace inhouse
 	{
