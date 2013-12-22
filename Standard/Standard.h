@@ -7,6 +7,8 @@
 	{
 		int print(String& string);
 		int print(char* string);
+		int println(String& string);
+		int println(char* string);
 		int printChar(char c);
 	}
 

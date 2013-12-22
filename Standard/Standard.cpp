@@ -20,6 +20,18 @@ namespace inhouse
 		return (sizeof(string) / sizeof(char));
 	}
 
+	int println(String& string)
+	{
+		return println(string.toString());
+	}
+
+	int println(char* string)
+	{
+		int length = print(string);
+		printChar('\n');
+		return length + 1;
+	}
+
 	int printChar(char c)
 	{
 		return write(1, &c, 1);
