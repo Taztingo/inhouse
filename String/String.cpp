@@ -136,12 +136,43 @@ namespace inhouse
 
 	int String::lastIndexOf(char character)
 	{
+		for(uint i = _length - 1; _length >= 0; i--)
+		{
+			if(_string[i] == character)
+			{
+				return i;
+			}
+		}
+
 		return -1;
 	}
 
 	int String::lastIndexOf(String& string)
 	{
-		return -1;
+		int length = string.length();
+		int lastIndex = -1;
+
+		for(uint i = 0; (i + length - 1) < _length && _string[i]; i++)
+		{
+			if(_string[i] == string[0])
+			{
+				bool totalMatch = true;
+				for(uint j = 1; j < string.length(); j++)
+				{
+					if(_string[i + j] != string[j])
+					{
+						totalMatch = false;
+					}
+				}
+
+				if(totalMatch)
+				{
+					lastIndex = i;
+				}
+			}
+		}
+
+		return lastIndex;
 	}
 
 	uint String::length()
