@@ -180,9 +180,24 @@ namespace inhouse
 		return _length;
 	}
 
-	char* String::substring(uint begin, uint end)
+	String& String::substring(uint begin, uint end)
 	{
-		return _string;
+		char beginErrorMessage[] = "Begin is out of bounds.";
+		char endErrorMessage[] = "End is out of bounds.";
+		error(begin <= _length + 1, beginErrorMessage);
+		error(end <= _length + 1, endErrorMessage);
+
+		uint length = end - begin;
+		char* newArray = new char[length + 1];
+		for(uint i = begin; i < end; i++)
+		{
+			newArray[i - begin] = _string[i];
+		}
+		newArray[length] = '\0';
+
+		String* string = new String(newArray);
+		delete[] newArray;
+		return *string;
 	}
 
 	char* String::toLowerCase()

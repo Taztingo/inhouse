@@ -31,7 +31,7 @@
 				int lastIndexOf(char character);
 				int lastIndexOf(String& string);
 				uint length();
-				char* substring(uint begin, uint end);
+				String& substring(uint begin, uint end);
 				char* toLowerCase();
 				char* toString();
 				char* toUpperCase();
