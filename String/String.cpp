@@ -136,7 +136,7 @@ namespace inhouse
 
 	int String::lastIndexOf(char character)
 	{
-		for(uint i = _length - 1; _length >= 0; i--)
+		for(int i = _length - 1; i >= 0; i--)
 		{
 			if(_string[i] == character)
 			{
