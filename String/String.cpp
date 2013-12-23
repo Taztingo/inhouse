@@ -205,9 +205,19 @@ namespace inhouse
 		return string;
 	}
 
-	char* String::toLowerCase()
+	String& String::toLowerCase()
 	{
-		return _string;
+		char distance = 'a' - 'A';
+
+		for(uint i = 0; i < _length; i++)
+		{
+			if(_string[i] >= 'A' && _string[i] <= 'Z')
+			{
+				_string[i] = _string[i] + distance;
+			}
+		}
+
+		return *this;
 	}
 
 	char* String::toString() const

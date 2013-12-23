@@ -33,7 +33,7 @@
 				uint length();
 				uint length() const;
 				String substring(uint begin, uint end);
-				char* toLowerCase();
+				String& toLowerCase();
 				char* toString();
 				char* toString() const;
 				char* toUpperCase();
