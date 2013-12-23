@@ -230,9 +230,19 @@ namespace inhouse
 		return _string;
 	}
 
-	char* String::toUpperCase()
+	String& String::toUpperCase()
 	{
-		return _string;
+		char distance = 'a' - 'A';
+
+		for(uint i = 0; i < _length; i++)
+		{
+			if(_string[i] >= 'a' && _string[i] <= 'z')
+			{
+				_string[i] = _string[i] - distance;
+			}
+		}
+
+		return *this;
 	}
 
 	char* String::trim()
