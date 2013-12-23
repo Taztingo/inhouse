@@ -31,18 +31,20 @@
 				int lastIndexOf(char character);
 				int lastIndexOf(String& string);
 				uint length();
-				String& substring(uint begin, uint end);
+				uint length() const;
+				String substring(uint begin, uint end);
 				char* toLowerCase();
 				char* toString();
+				char* toString() const;
 				char* toUpperCase();
 				char* trim();
 
 				bool operator==(String& string);
-				String& operator=(String& string);
 				char* operator+(String& string);
 				char* operator+(int integer);
 				char* operator+(bool boolean);
 				char& operator[](uint index);
+				String& operator=(const String& string);
 		};
 	}
 

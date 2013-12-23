@@ -179,8 +179,13 @@ namespace inhouse
 	{
 		return _length;
 	}
+	
+	uint String::length() const
+	{
+		return _length;
+	}
 
-	String& String::substring(uint begin, uint end)
+	String String::substring(uint begin, uint end)
 	{
 		char beginErrorMessage[] = "Begin is out of bounds.";
 		char endErrorMessage[] = "End is out of bounds.";
@@ -195,12 +200,17 @@ namespace inhouse
 		}
 		newArray[length] = '\0';
 
-		String* string = new String(newArray);
+		String string(newArray);
 		delete[] newArray;
-		return *string;
+		return string;
 	}
 
 	char* String::toLowerCase()
+	{
+		return _string;
+	}
+
+	char* String::toString() const
 	{
 		return _string;
 	}
@@ -225,11 +235,6 @@ namespace inhouse
 		return false;
 	}
 
-	String& String::operator=(String& string)
-	{
-		return string;
-	}
-
 	char* String::operator+(String& string)
 	{
 		return _string;
@@ -248,5 +253,20 @@ namespace inhouse
 	char& String::operator[](uint index)
 	{
 		return charAt(index);
+	}
+
+	String& String::operator=(const String& string)
+	{
+		_length = string.length();
+		
+		if(_string != nullptr)
+		{
+			delete[] _string;
+		}
+		
+		_string = new char[_length + 1];
+		memMove(_string, string.toString(), sizeof(char) * (_length+1));
+
+		return *this;
 	}
 }
