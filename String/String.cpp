@@ -257,15 +257,18 @@ namespace inhouse
 
 	String& String::operator=(const String& string)
 	{
-		_length = string.length();
-		
-		if(_string != nullptr)
+		if(this != &string)
 		{
-			delete[] _string;
-		}
+
+			_length = string.length();
+			if(_string != nullptr)
+			{
+				delete[] _string;
+			}
 		
-		_string = new char[_length + 1];
-		memMove(_string, string.toString(), sizeof(char) * (_length+1));
+			_string = new char[_length + 1];
+			memMove(_string, string.toString(), sizeof(char) * (_length+1));
+		}
 
 		return *this;
 	}
