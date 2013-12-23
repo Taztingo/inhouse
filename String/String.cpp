@@ -32,7 +32,7 @@ namespace inhouse
 		if(_string != nullptr)
 		{
 			_length = 0;
-			delete _string;
+			delete[] _string;
 		}
 	}
 
