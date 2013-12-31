@@ -81,4 +81,58 @@ namespace inhouse
 	{
 		errorIf(test, string.toString());
 	}
+
+	String itoa(int integer)
+	{
+		uint length = 0;
+		int tempInteger = integer;
+		char* charArray;
+		uint counter = 1;
+
+		if(tempInteger < 0)
+		{
+			tempInteger *= -1;
+		}
+
+		while(tempInteger > 0)
+		{
+			tempInteger /= 10;
+			length++;
+		}
+		if(integer == 0)
+		{
+			length = 1;
+		}
+		if(integer < 0)
+		{
+			integer *= -1;
+			length++;
+			charArray = new char[length + 1];
+			charArray[0] = '-';
+		}
+		else
+		{
+			charArray = new char[length + 1];
+		}
+		
+		charArray[length] = '\0';
+
+		if(integer == 0)
+		{
+			charArray[0] = '0';
+		}
+		while(integer > 0)
+		{
+			int remainder = integer % 10;
+			integer /= 10;
+			std::cout << "charArray[" << (length-counter) << "] = " << (remainder + '0') << "\n";
+			charArray[length - counter] = remainder + '0';
+			counter++;	
+		}
+
+		String string(charArray);
+		delete[] charArray;
+
+		return string;
+	}
 }

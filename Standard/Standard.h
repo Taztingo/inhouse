@@ -15,6 +15,8 @@
 
 		void errorIf(bool test, const char* string);
 		void errorIf(bool test, const String& string);
+
+		String itoa(int integer);
 	}
 
 #endif
