@@ -38,7 +38,7 @@ namespace inhouse
 		return write(1, &c, 1);
 	}
 
-	void* memCopy(void* destination, void* source, int number)
+	void* memCopy(void* destination, const void* source, int number)
 	{
 		char* cDestination = (char*) destination;
 		char* cSource = (char*) source;
@@ -51,7 +51,7 @@ namespace inhouse
 		return destination;
 	}
 
-	void* memMove(void* destination, void* source, int number)
+	void* memMove(void* destination, const void* source, int number)
 	{
 		char* cDestination = (char*) destination;
 		char* cSource = (char*) source;

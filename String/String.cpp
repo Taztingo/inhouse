@@ -14,7 +14,7 @@ namespace inhouse
 
 	}
 
-	String::String(char string[])
+	String::String(const char* string)
 	{
 		_length = 0;
 
