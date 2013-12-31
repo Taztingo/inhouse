@@ -46,6 +46,10 @@
 				String operator+(const char* string);
 				String operator+(int integer);
 				String operator+(bool boolean);
+				void operator+=(String& string);
+				void operator+=(const char* string);
+				void operator+=(int integer);
+				void operator+=(bool boolean);
 				char& operator[](uint index);
 				String& operator=(const String& string);
 		};

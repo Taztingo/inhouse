@@ -376,4 +376,24 @@ namespace inhouse
 
 		return *this;
 	}
+
+	void String::operator+=(String& string)
+	{
+		operator=(operator+(string));
+	}
+	
+	void String::operator+=(const char* string)
+	{
+		operator=(operator+(string));
+	}
+	
+	void String::operator+=(int integer)
+	{
+		operator=(operator+(integer));
+	}
+	
+	void String::operator+=(bool boolean)
+	{
+		operator=(operator+(boolean));
+	}
 }
