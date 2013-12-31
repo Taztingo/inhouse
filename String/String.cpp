@@ -289,7 +289,15 @@ namespace inhouse
 
 	String String::operator+(String& string)
 	{
-		return *this;
+		char* charArray = new char[_length + string.length() + 1];
+			
+		memMove(charArray, _string, _length);
+		memMove(&charArray[_length], string.toString(), string.length());
+		charArray[_length + string.length() + 1] = '\0';
+		String newString(charArray);
+
+		delete[] charArray;
+		return newString;
 	}
 
 	String String::operator+(int integer)
