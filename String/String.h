@@ -41,9 +41,9 @@
 
 				bool operator==(String& string);
 				bool operator!=(String& string);
-				char* operator+(String& string);
-				char* operator+(int integer);
-				char* operator+(bool boolean);
+				String operator+(String& string);
+				String operator+(int integer);
+				String operator+(bool boolean);
 				char& operator[](uint index);
 				String& operator=(const String& string);
 		};

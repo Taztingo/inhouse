@@ -287,19 +287,35 @@ namespace inhouse
 		return compareTo(string);
 	}
 
-	char* String::operator+(String& string)
+	String String::operator+(String& string)
 	{
-		return _string;
+		return *this;
 	}
 
-	char* String::operator+(int integer)
+	String String::operator+(int integer)
 	{
-		return _string;
+		char* charArray = new char[_length + 2];
+		
+		memMove(charArray, _string, _length);
+		charArray[_length] = integer + '0';	
+		charArray[_length + 1] = '\0';
+		String newString(charArray);
+
+		delete[] charArray;
+		return newString;
 	}
 
-	char* String::operator+(bool boolean)
+	String String::operator+(bool boolean)
 	{
-		return _string;
+		char* charArray = new char[_length + 2];
+		
+		memMove(charArray, _string, _length);
+		charArray[_length] = boolean + '0';	
+		charArray[_length + 1] = '\0';
+		String newString(charArray);
+
+		delete[] charArray;
+		return newString;
 	}
 
 	char& String::operator[](uint index)
