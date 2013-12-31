@@ -19,6 +19,7 @@
 			public:
 				String();
 				String(const char* string);
+				String(const String& string);
 				~String();
 			
 				char& charAt(uint index);
