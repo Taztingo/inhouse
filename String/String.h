@@ -20,6 +20,7 @@
 				String();
 				String(const char* string);
 				String(const String& string);
+				String(const int& integer);
 				~String();
 			
 				char& charAt(uint index);

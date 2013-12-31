@@ -34,6 +34,15 @@ namespace inhouse
 		_string = new char[string.length() + 1];
 		memMove(_string, string.toString(), sizeof(char) * (_length+1));
 	}
+	
+	String::String(const int& integer)
+	{
+		String string(itoa(integer));
+		_length = string.length();
+
+		_string = new char[string.length() + 1];
+		memMove(_string, string.toString(), sizeof(char) * (_length+1));
+	}
 
 	String::~String()
 	{
