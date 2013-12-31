@@ -3,7 +3,7 @@ Created by Matt Witkowski
 
 Brief -
 A collection of inhouse projects in C++11 to keep me busy during Winter 2013.
-All code will start from scratch and build up, starting with String.
+All code will be created from scratch and built upon, starting with String.
 I will be basing my class implementation/methods off of Java's.
 The objective is to simply keep my mind fresh, and hopefully build something cool
 at the end.
