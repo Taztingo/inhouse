@@ -42,6 +42,7 @@
 				bool operator==(String& string);
 				bool operator!=(String& string);
 				String operator+(String& string);
+				String operator+(const char* string);
 				String operator+(int integer);
 				String operator+(bool boolean);
 				char& operator[](uint index);

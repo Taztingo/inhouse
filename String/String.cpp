@@ -299,6 +299,20 @@ namespace inhouse
 		delete[] charArray;
 		return newString;
 	}
+	
+	String String::operator+(const char* string)
+	{
+		String tempString(string);
+		char* charArray = new char[_length + tempString.length() + 1];
+			
+		memMove(charArray, _string, _length);
+		memMove(&charArray[_length], tempString.toString(), tempString.length());
+		charArray[_length + tempString.length() + 1] = '\0';
+		String newString(charArray);
+
+		delete[] charArray;
+		return newString;
+	}
 
 	String String::operator+(int integer)
 	{
