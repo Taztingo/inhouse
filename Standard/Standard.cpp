@@ -5,12 +5,12 @@
 
 namespace inhouse
 {
-	int print(String& string)
+	int print(const String& string)
 	{
 		return print(string.toString());
 	}
 	
-	int print(char* string)
+	int print(const char* string)
 	{
 		while(*string)
 		{
@@ -21,19 +21,19 @@ namespace inhouse
 		return (sizeof(string) / sizeof(char));
 	}
 
-	int println(String& string)
+	int println(const String& string)
 	{
 		return println(string.toString());
 	}
 
-	int println(char* string)
+	int println(const char* string)
 	{
 		int length = print(string);
 		printChar('\n');
 		return length + 1;
 	}
 
-	int printChar(char c)
+	int printChar(const char c)
 	{
 		return write(1, &c, 1);
 	}
@@ -64,21 +64,21 @@ namespace inhouse
 		return destination;
 	}
 
-	void error(bool passTest, char* string)
+	void errorIf(bool test, const char* string)
 	{
-		char errorStatement[] = "An error has occurred: ";
+		String errorStatement = "An error has occurred: ";
 		
-		if(!passTest)
+		if(test)
 		{
 			print(errorStatement);
 			println(string);
 		}
 
-		assert(passTest);
+		assert(!test);
 	}
 
-	void error(bool passTest, String& string)
+	void errorIf(bool test, const String& string)
 	{
-		error(passTest, string.toString());
+		errorIf(test, string.toString());
 	}
 }

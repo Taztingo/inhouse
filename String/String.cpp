@@ -47,7 +47,7 @@ namespace inhouse
 	char& String::charAt(uint index)
 	{
 		char errorMessage[] = "Index out of bounds";
-		error(index <= _length, errorMessage);
+		errorIf(index > _length, errorMessage);
 		return _string[index];
 	}
 
@@ -203,8 +203,8 @@ namespace inhouse
 	{
 		char beginErrorMessage[] = "Begin is out of bounds.";
 		char endErrorMessage[] = "End is out of bounds.";
-		error(begin <= _length + 1, beginErrorMessage);
-		error(end <= _length + 1, endErrorMessage);
+		errorIf(begin > _length + 1, beginErrorMessage);
+		errorIf(end > _length + 1, endErrorMessage);
 
 		uint length = end - begin;
 		char* newArray = new char[length + 1];
