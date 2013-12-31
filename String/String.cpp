@@ -279,7 +279,7 @@ namespace inhouse
 
 	bool String::operator==(String& string)
 	{
-		return false;
+		return !compareTo(string);
 	}
 
 	char* String::operator+(String& string)
