@@ -339,15 +339,8 @@ namespace inhouse
 
 	String String::operator+(int integer)
 	{
-		char* charArray = new char[_length + 2];
-		
-		memMove(charArray, _string, _length);
-		charArray[_length] = integer + '0';	
-		charArray[_length + 1] = '\0';
-		String newString(charArray);
-
-		delete[] charArray;
-		return newString;
+		String string = itoa(integer);
+		return operator+(string);
 	}
 
 	String String::operator+(bool boolean)
