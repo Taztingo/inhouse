@@ -40,6 +40,7 @@
 				String trim();
 
 				bool operator==(String& string);
+				bool operator!=(String& string);
 				char* operator+(String& string);
 				char* operator+(int integer);
 				char* operator+(bool boolean);

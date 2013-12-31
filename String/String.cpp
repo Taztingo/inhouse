@@ -281,6 +281,11 @@ namespace inhouse
 	{
 		return !compareTo(string);
 	}
+	
+	bool String::operator!=(String& string)
+	{
+		return compareTo(string);
+	}
 
 	char* String::operator+(String& string)
 	{
