@@ -307,7 +307,7 @@ namespace inhouse
 			
 		memMove(charArray, _string, _length);
 		memMove(&charArray[_length], string.toString(), string.length());
-		charArray[_length + string.length() + 1] = '\0';
+		charArray[_length + string.length()] = '\0';
 		String newString(charArray);
 
 		delete[] charArray;
@@ -321,7 +321,7 @@ namespace inhouse
 			
 		memMove(charArray, _string, _length);
 		memMove(&charArray[_length], tempString.toString(), tempString.length());
-		charArray[_length + tempString.length() + 1] = '\0';
+		charArray[_length + tempString.length()] = '\0';
 		String newString(charArray);
 
 		delete[] charArray;
