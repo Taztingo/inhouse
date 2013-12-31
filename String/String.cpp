@@ -84,7 +84,13 @@ namespace inhouse
 
 	int String::compareToIgnoreCase(String& string)
 	{
-		return 0;
+		String tempThis = *this;
+		String tempString = string;
+
+		tempString.toLowerCase();
+		tempThis.toLowerCase();
+
+		return tempThis.compareTo(tempString);
 	}
 
 	bool String::contains(String& string)
