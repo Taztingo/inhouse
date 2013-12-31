@@ -245,9 +245,36 @@ namespace inhouse
 		return *this;
 	}
 
-	char* String::trim()
+	String String::trim()
 	{
-		return _string;
+		uint start = 0;
+		uint end = _length - 1;
+
+		//Get rid of all beginning spaces
+		while(_string[start] && _string[start] == ' ')
+		{
+			start++;
+		}
+		
+		//Get rid of all ending spaces
+		while(end > 0 && _string[end] == ' ')
+		{
+			end--;
+		}
+
+		//Nothing to be trimmed
+		if(start == 0 && end == _length)
+		{
+			return *this;
+		}
+
+		if(end < start)
+		{
+			char empty[] = "";
+			return String(empty);
+		}
+
+		return substring(start, end + 1);
 	}
 
 	bool String::operator==(String& string)

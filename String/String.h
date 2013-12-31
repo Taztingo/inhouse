@@ -37,7 +37,7 @@
 				char* toString();
 				char* toString() const;
 				String& toUpperCase();
-				char* trim();
+				String trim();
 
 				bool operator==(String& string);
 				char* operator+(String& string);
