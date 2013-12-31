@@ -125,7 +125,6 @@ namespace inhouse
 		{
 			int remainder = integer % 10;
 			integer /= 10;
-			std::cout << "charArray[" << (length-counter) << "] = " << (remainder + '0') << "\n";
 			charArray[length - counter] = remainder + '0';
 			counter++;	
 		}
