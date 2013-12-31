@@ -46,6 +46,7 @@
 				void trimToSize();
 				T& get(uint index);
 				T& operator[](uint index);
+				DynamicArray<T>& operator=(DynamicArray<T>& array);
 		};
 
 		template<class T>
@@ -271,6 +272,23 @@
 			errorIf(index >= _size, "Index out of bounds.");
 			return _array[index];
 		}
+		
+		template<class T>
+		DynamicArray<T>& DynamicArray<T>::operator=(DynamicArray<T>& array)
+		{
+			if(&array != this)
+			{
+				clear();
+				increaseCapacity(array.getCapacity());
+				
+				for(uint i = 0; i < array.getSize(); i++)
+				{
+					add(array.get(i));
+				}
+			}
+	
+			return *this;
+		}
 
 		template<class T>
 		void DynamicArray<T>::increaseCapacity(uint newCapacity)
@@ -319,7 +337,7 @@
 		
 			for (uint i = 0; i < _size; i++)
 			{
-				string = string + _array[i];
+				string += _array[i];
 				if(i != _size - 1)
 				{
 					string += ", ";
