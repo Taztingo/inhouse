@@ -6,7 +6,7 @@
 #ifndef STRING_H_
 	#define STRING_H_
 
-	#include "../Common/Common.h"
+	#include "../Common/Type.h"
 
 	namespace inhouse
 	{
@@ -42,12 +42,14 @@
 				String trim();
 
 				bool operator==(String& string);
+				bool operator==(const char* string);
 				bool operator!=(String& string);
-				String operator+(String& string);
+				bool operator!=(const char* string);
+				String operator+(const String& string);
 				String operator+(const char* string);
 				String operator+(int integer);
 				String operator+(bool boolean);
-				void operator+=(String& string);
+				void operator+=(const String& string);
 				void operator+=(const char* string);
 				void operator+=(int integer);
 				void operator+=(bool boolean);

@@ -306,12 +306,24 @@ namespace inhouse
 		return !compareTo(string);
 	}
 	
+	bool String::operator==(const char* string)
+	{
+		String tempString(string);
+		return !compareTo(tempString);
+	}
+	
 	bool String::operator!=(String& string)
 	{
 		return compareTo(string);
 	}
+	
+	bool String::operator!=(const char* string)
+	{
+		String tempString(string);
+		return compareTo(tempString);
+	}
 
-	String String::operator+(String& string)
+	String String::operator+(const String& string)
 	{
 		char* charArray = new char[_length + string.length() + 1];
 			
@@ -379,7 +391,7 @@ namespace inhouse
 		return *this;
 	}
 
-	void String::operator+=(String& string)
+	void String::operator+=(const String& string)
 	{
 		operator=(operator+(string));
 	}

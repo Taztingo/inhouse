@@ -7,7 +7,7 @@
 #ifndef DYNAMICARRAY_H_
 	#define DYNAMICARRAY_H_
 
-	#include "../../Common/Common.h"
+	#include "../../Common/Type.h"
 	#include "../../Standard/Standard.h"
 	#include "../../String/String.h"
 
