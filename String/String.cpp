@@ -11,7 +11,7 @@ namespace inhouse
 	String::String()
 	{
 		_length = 0;
-
+		_string = nullptr;
 	}
 
 	String::String(const char* string)
@@ -48,6 +48,7 @@ namespace inhouse
 	{
 		if(_string != nullptr)
 		{
+			_string = nullptr;
 			_length = 0;
 			delete[] _string;
 		}
@@ -365,7 +366,6 @@ namespace inhouse
 	{
 		if(this != &string)
 		{
-
 			_length = string.length();
 			if(_string != nullptr)
 			{
