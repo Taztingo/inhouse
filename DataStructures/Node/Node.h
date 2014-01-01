@@ -57,13 +57,15 @@
 		template <class T>
 		Node<T>& Node<T>::getNextNode()
 		{
-			return _nextNode;
+			errorIf(_nextNode == nullptr, "The next node is null, use hasNextNode.");
+			return *_nextNode;
 		}
 
 		template <class T>
 		Node<T>& Node<T>::getPreviousNode()
 		{
-			return _previousNode;
+			errorIf(_previousNode == nullptr, "The previous node is null, use hasPreviousNode.");
+			return *_previousNode;
 		}
 	
 		template <class T>
