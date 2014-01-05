@@ -206,6 +206,19 @@
 		String LinkedList<T>::toString()
 		{
 			String string = "";
+			Node<T>* currentNode = _head;
+
+			while(currentNode)
+			{
+				string += currentNode->getElement();
+				if(currentNode->getNextNode())
+				{
+					string += ", ";
+				}
+
+				currentNode = currentNode->getNextNode();
+			}
+
 			return string;
 		}
 
