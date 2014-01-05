@@ -32,7 +32,6 @@
 				bool append(const T& element);
 				void clear();
 				bool contains(T& element);
-				T& element();
 				T& get(uint index);
 				T& getHead();
 				T& getTail();
@@ -178,12 +177,6 @@
 		bool LinkedList<T>::contains(T& element)
 		{
 			return false;
-		}
-
-		template <typename T>
-		T& LinkedList<T>::element()
-		{
-			return *_head;
 		}
 
 		template <typename T>
