@@ -47,6 +47,7 @@
 				String toString();
 
 				LinkedList<T>& operator=(LinkedList<T>& newList);
+				bool operator==(LinkedList<T>& newList);
 		};
 
 		template <typename T>
@@ -469,6 +470,31 @@
 			}
 
 			return *this;
+		}
+		
+		template <typename T>
+		bool LinkedList<T>::operator==(LinkedList<T>& newList)
+		{
+			Node<T>* otherNode = newList._head;
+			Node<T>* thisNode = _head;
+			
+			if(_size != newList.size())
+			{
+				return false;
+			}
+
+			while(otherNode && thisNode)
+			{
+				if(otherNode->getElement() != thisNode->getElement())
+				{
+					return false;
+				}
+
+				otherNode = otherNode->getNextNode();
+				thisNode = thisNode->getNextNode();
+			}
+
+			return true;
 		}
 	}
 
