@@ -17,8 +17,8 @@
 		class LinkedList
 		{
 			private:
-				Node<T> _head;
-				Node<T> _tail;
+				Node<T>* _head;
+				Node<T>* _tail;
 				uint _size;
 
 			public:
@@ -50,11 +50,16 @@
 		template <typename T>
 		LinkedList<T>::LinkedList()
 		{
+			_head = nullptr;
+			_tail = nullptr;
 		}
 
 		template <typename T>
 		LinkedList<T>::~LinkedList()
 		{
+			clear();
+			_head = nullptr;
+			_tail = nullptr;
 		}
 		
 		template <typename T>
@@ -87,19 +92,19 @@
 		template <typename T>
 		T& LinkedList<T>::element()
 		{
-			return _head;
+			return *_head;
 		}
 
 		template <typename T>
 		T& LinkedList<T>::get(uint index)
 		{
-			return _head;
+			return *_head;
 		}
 
 		template <typename T>
 		T& LinkedList<T>::getFirst()
 		{
-			return _head;
+			return *_head;
 		}
 
 		template <typename T>
@@ -123,13 +128,13 @@
 		template <typename T>
 		T& LinkedList<T>::remove()
 		{
-			return _head;
+			return *_head;
 		}
 		
 		template <typename T>
 		T& LinkedList<T>::remove(uint index)
 		{
-			return _head;
+			return *_head;
 		}
 		
 		template <typename T>
@@ -141,7 +146,7 @@
 		template <typename T>
 		T& LinkedList<T>::removeLast()
 		{
-			return _head;
+			return *_head;
 		}
 		
 		template <typename T>
@@ -153,7 +158,7 @@
 		template <typename T>
 		T& LinkedList<T>::set(uint index, T& element)
 		{
-			return _head;
+			return *_head;
 		}
 		
 		template <typename T>
