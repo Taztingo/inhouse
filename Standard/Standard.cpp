@@ -24,10 +24,20 @@ namespace inhouse
 
 		return (sizeof(string) / sizeof(char));
 	}
+	
+	int print(const int& integer)
+	{
+		return print(itoa(integer));
+	}
 
 	int println(const String& string)
 	{
 		return println(string.toString());
+	}
+	
+	int println(const int& integer)
+	{
+		return println(itoa(integer));
 	}
 
 	int println(const char* string)

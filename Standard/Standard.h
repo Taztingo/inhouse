@@ -6,8 +6,10 @@
 		class String;
 		int print(const String& string);
 		int print(const char* string);
+		int print(const int& integer);
 		int println(const String& string);
 		int println(const char* string);
+		int println(const int& integer);
 		int printChar(const char c);
 
 		void* memCopy(void* destination, const void* source, int number);
