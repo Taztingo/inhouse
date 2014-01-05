@@ -194,7 +194,7 @@
 		template <typename T>
 		T& LinkedList<T>::get(uint index)
 		{
-			return *_head;
+			return getNodeAt(index)->getElement();
 		}
 
 		template <typename T>
