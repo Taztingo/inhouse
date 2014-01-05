@@ -28,8 +28,8 @@
 				virtual ~LinkedList();
 
 				bool add(const T& element);
-				void insert(uint index, T& element);
-				void append(T& element);
+				bool insert(uint index, const T& element);
+				bool append(const T& element);
 				void clear();
 				bool contains(T& element);
 				T& element();
@@ -107,13 +107,48 @@
 		}
 
 		template <typename T>
-		void LinkedList<T>::insert(uint index, T& element)
+		bool LinkedList<T>::insert(uint index, const T& element)
 		{
+			Node<T>* newNode;
+
+			if(index == 0)
+			{
+				return add(element);
+			}
+			else if(index >= _size)
+			{
+				return append(element);
+			}
+			else
+			{
+				newNode = new Node<T>(element);
+				if(newNode)
+				{
+					Node<T>* nodeAtIndex = getNodeAt(index);
+					Node<T>* previousNode = nodeAtIndex->getPreviousNode();
+
+					if(previousNode)
+					{
+						previousNode->setNextNode(*newNode);
+					}
+
+					newNode->setNextNode(*nodeAtIndex);
+					newNode->setPreviousNode(*previousNode);
+
+					nodeAtIndex->setPreviousNode(*newNode);
+					
+					_size++;
+					return true;
+				}
+			}
+
+			return false;
 		}
 
 		template <typename T>
-		void LinkedList<T>::append(T& element)
+		bool LinkedList<T>::append(const T& element)
 		{
+			return false;
 		}
 
 		template <typename T>
