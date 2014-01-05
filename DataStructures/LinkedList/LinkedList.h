@@ -257,7 +257,7 @@
 			Node<T>* removedNode = _head;
 			T& removedValue = removedNode->getElement();
 			
-			if(_head->getNextNode())
+			if(removedNode->getNextNode())
 			{
 				_head = _head->getNextNode();
 				_head->setPreviousNode(nullptr);
@@ -281,8 +281,8 @@
 		template <typename T>
 		T& LinkedList<T>::remove(uint index)
 		{
-			T& removedElement;
-
+			errorIf(_size == 0, "Cannot remove from empty LinkedList.");
+			
 			if(index == 0)
 			{
 				return remove();
@@ -291,15 +291,14 @@
 			{
 				return removeLast();
 			}
-			else
-			{
-				Node<T>* removedNode = getNodeAt(index);
-				removedElement = removedNode->getElement();
-				removedNode->getPreviousNode()->setNextNode(removedNode->getNextNode());
-				removedNode->getNextNode()->setPreviousNode(removedNode->getPreviousNode());
 				
-				delete removedNode;
-			}
+			Node<T>* removedNode = getNodeAt(index);
+			T& removedElement = removedNode->getElement();
+			removedNode->getPreviousNode()->setNextNode(removedNode->getNextNode());
+			removedNode->getNextNode()->setPreviousNode(removedNode->getPreviousNode());
+				
+			delete removedNode;
+			_size--;
 
 			return removedElement;
 		}
@@ -313,7 +312,30 @@
 		template <typename T>
 		T& LinkedList<T>::removeLast()
 		{
-			return *_head;
+			errorIf(_size == 0, "Cannot remove from empty LinkedList.");
+			
+			Node<T>* removedNode = _tail;
+			T& removedValue = removedNode->getElement();
+			
+			if(removedNode->getPreviousNode())
+			{
+				_tail = removedNode->getPreviousNode();
+				_tail->setNextNode(nullptr);
+
+				if(_size == 2)
+				{
+					_head = _tail;
+				}
+			}
+			else
+			{
+				_head = nullptr;
+				_tail = nullptr;
+			}
+
+			_size--;
+			delete removedNode;
+			return removedValue;
 		}
 		
 		template <typename T>
