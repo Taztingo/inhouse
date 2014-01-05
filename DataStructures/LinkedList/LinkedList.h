@@ -142,13 +142,13 @@
 		template <typename T>
 		T& LinkedList<T>::getHead()
 		{
-			return *_head;
+			return _head->getElement();
 		}
 
 		template <typename T>
 		T& LinkedList<T>::getTail()
 		{
-			return *_tail;
+			return _tail->getElement();
 		}
 
 		template <typename T>
