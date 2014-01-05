@@ -27,7 +27,7 @@
 				LinkedList();
 				virtual ~LinkedList();
 
-				bool add(T& element);
+				bool add(const T& element);
 				void insert(uint index, T& element);
 				void append(T& element);
 				void clear();
@@ -45,6 +45,7 @@
 				bool removeLastOccurrence(T& element);
 				T& set(uint index, T& element);
 				uint size();
+				String toString();
 
 				LinkedList<T>& operator=(LinkedList<T>& newList);
 		};
@@ -67,11 +68,18 @@
 		template <typename T>
 		Node<T>* LinkedList<T>::getLastNode()
 		{
-			return _tail;
+			Node<T>* lastNode = _head;
+
+			while(lastNode && lastNode->getNextNode())
+			{
+				lastNode = lastNode->getNextNode();
+			}
+
+			return lastNode;
 		}
 		
 		template <typename T>
-		bool LinkedList<T>::add(T& element)
+		bool LinkedList<T>::add(const T& element)
 		{
 			Node<T>* newNode = new Node<T>(element);
 
@@ -84,7 +92,7 @@
 				}
 				else
 				{
-					newNode->setNextNode(_head);
+					newNode->setNextNode(*_head);
 					_head = newNode;
 					_tail = getLastNode();
 				}
@@ -192,6 +200,13 @@
 		uint LinkedList<T>::size()
 		{
 			return _size;
+		}
+
+		template <typename T>
+		String LinkedList<T>::toString()
+		{
+			String string = "";
+			return string;
 		}
 
 		template <typename T>
