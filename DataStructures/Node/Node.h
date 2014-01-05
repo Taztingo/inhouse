@@ -15,13 +15,13 @@
 
 			public:
 				Node();
-				Node(T element);
+				Node(T& element);
 				virtual ~Node();
 
 				T& getElement();
 				Node<T>& getNextNode();
 				Node<T>& getPreviousNode();
-				void setElement(T element);
+				void setElement(T& element);
 				void setNextNode(Node<T>& nextNode);
 				void setPreviousNode(Node<T>& previousNode);
 				bool hasPreviousNode();
@@ -36,7 +36,7 @@
 		}
 	
 		template <class T>
-		Node<T>::Node(T element)
+		Node<T>::Node(T& element)
 		{
 			_element = element;
 			_nextNode = nullptr;
@@ -69,7 +69,7 @@
 		}
 	
 		template <class T>
-		void Node<T>::setElement(T element)
+		void Node<T>::setElement(T& element)
 		{
 			_element = element;
 		}

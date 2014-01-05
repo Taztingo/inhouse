@@ -4,7 +4,8 @@
 
 RM = rm -f
 SRCPATH = .
-SRC = Node.h ../../String/String.cpp ../../Standard/Standard.cpp
+SRC = Node.h ../../String/String.cpp ../../Standard/Standard.cpp \
+../../Common/Color.cpp
 TESTNAME = test
 TESTSRC = main.cpp
 
