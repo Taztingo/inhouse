@@ -21,7 +21,7 @@
 				Node<T>* _tail;
 				uint _size;
 
-				Node<T>* getLastNode();
+				Node<T>* getNodeAt(uint index);
 
 			public:
 				LinkedList();
@@ -67,16 +67,17 @@
 		}
 
 		template <typename T>
-		Node<T>* LinkedList<T>::getLastNode()
+		Node<T>* LinkedList<T>::getNodeAt(uint index)
 		{
-			Node<T>* lastNode = _head;
+			errorIf(index >= _size, "Node index out of bounds.");
+			Node<T>* node = _head;
 
-			while(lastNode && lastNode->getNextNode())
+			for(uint i = 0; i < index; i++)
 			{
-				lastNode = lastNode->getNextNode();
+				node = node->getNextNode();
 			}
 
-			return lastNode;
+			return node;
 		}
 		
 		template <typename T>
@@ -89,17 +90,16 @@
 				if(_head == nullptr)
 				{
 					_head = newNode;
-					_tail = newNode;
 				}
 				else
 				{
 					newNode->setNextNode(*_head);
 					_head = newNode;
 					_head->getNextNode()->setPreviousNode(*_head);
-					_tail = getLastNode();
 				}
-				
+			
 				_size++;
+				_tail = getNodeAt(_size - 1);
 				return true;
 			}
 
