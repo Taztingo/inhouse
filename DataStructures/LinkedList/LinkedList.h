@@ -47,7 +47,8 @@
 				String toString();
 
 				LinkedList<T>& operator=(LinkedList<T>& newList);
-				bool operator==(LinkedList<T>& newList);
+				bool operator==(LinkedList<T>& list);
+				bool operator!=(LinkedList<T>& list);
 		};
 
 		template <typename T>
@@ -473,12 +474,12 @@
 		}
 		
 		template <typename T>
-		bool LinkedList<T>::operator==(LinkedList<T>& newList)
+		bool LinkedList<T>::operator==(LinkedList<T>& list)
 		{
-			Node<T>* otherNode = newList._head;
+			Node<T>* otherNode = list._head;
 			Node<T>* thisNode = _head;
 			
-			if(_size != newList.size())
+			if(_size != list.size())
 			{
 				return false;
 			}
@@ -495,6 +496,12 @@
 			}
 
 			return true;
+		}
+		
+		template <typename T>
+		bool LinkedList<T>::operator!=(LinkedList<T>& list)
+		{
+			return !operator==(list);
 		}
 	}
 
