@@ -35,7 +35,7 @@
 				T& get(uint index);
 				T& getHead();
 				T& getTail();
-				int indexOf(T& element);
+				int indexOf(const T& element);
 				int lastIndexOf(T& element);
 				T& remove();
 				T& remove(uint index);
@@ -210,8 +210,20 @@
 		}
 
 		template <typename T>
-		int LinkedList<T>::indexOf(T& element)
+		int LinkedList<T>::indexOf(const T& element)
 		{
+			Node<T>* node = _head;
+
+			for(uint i = 0; i < _size; i++)
+			{
+				if(node->getElement() == element)
+				{
+					return i;
+				}
+
+				node = node->getNextNode();
+			}
+
 			return -1;
 		}
 		
