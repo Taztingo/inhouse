@@ -69,7 +69,7 @@
 		template <typename T>
 		Node<T>* LinkedList<T>::getNodeAt(uint index)
 		{
-			errorIf(index >= _size, "Node index out of bounds.");
+			errorIf(index > _size, "Node index out of bounds.");
 			Node<T>* node = _head;
 
 			for(uint i = 0; i < index; i++)
@@ -98,8 +98,8 @@
 					_head->getNextNode()->setPreviousNode(*_head);
 				}
 			
+				_tail = getNodeAt(_size);
 				_size++;
-				_tail = getNodeAt(_size - 1);
 				return true;
 			}
 
