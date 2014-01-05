@@ -454,6 +454,20 @@
 		template <typename T>
 		LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>& newList)
 		{
+			if(&newList != this)
+			{
+			
+				clear();
+				uint size = newList.size();
+				Node<T>* node = newList._head;
+
+				for(uint i = 0; i < size; i++)
+				{
+					append(node->getElement());
+					node = node->getNextNode();
+				}
+			}
+
 			return *this;
 		}
 	}
