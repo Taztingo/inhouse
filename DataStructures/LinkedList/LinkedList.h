@@ -9,7 +9,7 @@
 	#include "../../Common/Type.h"
 	#include "../../Standard/Standard.h"
 	#include "../../String/String.h"
-	#include "../Node.h"
+	#include "../Node/Node.h"
 
 	namespace inhouse
 	{
@@ -42,7 +42,7 @@
 				T& removeLast();
 				bool removeLastOccurrence(T& element);
 				T& set(uint index, T& element);
-				uint size()
+				uint size();
 
 				LinkedList<T>& operator=(LinkedList<T>& newList);
 		};
