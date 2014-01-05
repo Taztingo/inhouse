@@ -281,7 +281,27 @@
 		template <typename T>
 		T& LinkedList<T>::remove(uint index)
 		{
-			return *_head;
+			T& removedElement;
+
+			if(index == 0)
+			{
+				return remove();
+			}
+			else if(index == _size - 1)
+			{
+				return removeLast();
+			}
+			else
+			{
+				Node<T>* removedNode = getNodeAt(index);
+				removedElement = removedNode->getElement();
+				removedNode->getPreviousNode()->setNextNode(removedNode->getNextNode());
+				removedNode->getNextNode()->setPreviousNode(removedNode->getPreviousNode());
+				
+				delete removedNode;
+			}
+
+			return removedElement;
 		}
 		
 		template <typename T>
