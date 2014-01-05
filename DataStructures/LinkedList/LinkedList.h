@@ -31,7 +31,7 @@
 				bool insert(uint index, const T& element);
 				bool append(const T& element);
 				void clear();
-				bool contains(T& element);
+				bool contains(const T& element);
 				T& get(uint index);
 				T& getHead();
 				T& getTail();
@@ -174,8 +174,20 @@
 		}
 
 		template <typename T>
-		bool LinkedList<T>::contains(T& element)
+		bool LinkedList<T>::contains(const T& element)
 		{
+			Node<T>* node = _head;
+
+			for(uint i = 0; i < _size; i++)
+			{
+				if(node->getElement() == element)
+				{
+					return true;
+				}
+
+				node = node->getNextNode();
+			}
+
 			return false;
 		}
 
