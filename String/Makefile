@@ -4,7 +4,7 @@
 
 RM = rm -f
 SRCPATH = .
-SRC = String.cpp ../Standard/Standard.cpp
+SRC = String.cpp ../Standard/Standard.cpp ../Common/Color.cpp
 TESTNAME = test
 TESTSRC = main.cpp
 
