@@ -21,6 +21,8 @@
 				Node<T>* _tail;
 				uint _size;
 
+				Node<T>* getLastNode();
+
 			public:
 				LinkedList();
 				virtual ~LinkedList();
@@ -32,8 +34,8 @@
 				bool contains(T& element);
 				T& element();
 				T& get(uint index);
-				T& getFirst();
-				T& getLast();
+				T& getHead();
+				T& getTail();
 				int indexOf(T& element);
 				int lastIndexOf(T& element);
 				T& remove();
@@ -61,11 +63,36 @@
 			_head = nullptr;
 			_tail = nullptr;
 		}
+
+		template <typename T>
+		Node<T>* LinkedList<T>::getLastNode()
+		{
+			return _tail;
+		}
 		
 		template <typename T>
 		bool LinkedList<T>::add(T& element)
 		{
-			return true;
+			Node<T>* newNode = new Node<T>(element);
+
+			if(newNode)
+			{
+				if(_head == nullptr)
+				{
+					_head = newNode;
+					_tail = newNode;
+				}
+				else
+				{
+					newNode->setNextNode(_head);
+					_head = newNode;
+					_tail = getLastNode();
+				}
+
+				return true;
+			}
+
+			return false;
 		}
 
 		template <typename T>
@@ -102,15 +129,15 @@
 		}
 
 		template <typename T>
-		T& LinkedList<T>::getFirst()
+		T& LinkedList<T>::getHead()
 		{
 			return *_head;
 		}
 
 		template <typename T>
-		T& LinkedList<T>::getLast()
+		T& LinkedList<T>::getTail()
 		{
-			return _tail;
+			return *_tail;
 		}
 
 		template <typename T>
