@@ -53,6 +53,7 @@
 		template <typename T>
 		LinkedList<T>::LinkedList()
 		{
+			_size = 0;
 			_head = nullptr;
 			_tail = nullptr;
 		}
@@ -94,9 +95,11 @@
 				{
 					newNode->setNextNode(*_head);
 					_head = newNode;
+					_head->getNextNode()->setPreviousNode(*_head);
 					_tail = getLastNode();
 				}
-
+				
+				_size++;
 				return true;
 			}
 
