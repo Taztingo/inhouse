@@ -39,9 +39,9 @@
 				int lastIndexOf(const T& element);
 				T& remove();
 				T& remove(uint index);
-				bool remove(T& element);
+				bool removeFirstElement(const T& element);
 				T& removeLast();
-				bool removeLastOccurrence(T& element);
+				bool removeLastElement(T& element);
 				T& set(uint index, T& element);
 				uint size();
 				String toString();
@@ -304,8 +304,43 @@
 		}
 		
 		template <typename T>
-		bool LinkedList<T>::remove(T& element)
+		bool LinkedList<T>::removeFirstElement(const T& element)
 		{
+			Node<T>* node = _head;
+
+			for(uint i = 0; i < _size; i++)
+			{
+				if(node->getElement() == element)
+				{
+					Node<T>* previousNode = node->getPreviousNode();
+					Node<T>* nextNode = node->getNextNode();
+
+					if(previousNode)
+					{
+						previousNode->setNextNode(nextNode);
+					}
+					else
+					{
+						_head = nextNode;
+					}
+
+					if(nextNode)
+					{
+						nextNode->setPreviousNode(previousNode);
+					}
+					else
+					{
+						_tail = previousNode;
+					}
+
+					_size--;
+					delete node;
+					return true;
+				}
+
+				node = node->getNextNode();
+			}
+
 			return false;
 		}
 		
@@ -339,7 +374,7 @@
 		}
 		
 		template <typename T>
-		bool LinkedList<T>::removeLastOccurrence(T& element)
+		bool LinkedList<T>::removeLastElement(T& element)
 		{
 			return false;
 		}
