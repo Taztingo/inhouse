@@ -22,6 +22,9 @@
 				uint _size;
 
 			public:
+				LinkedList();
+				virtual ~LinkedList();
+
 				bool add(T& element);
 				void insert(uint index, T& element);
 				void append(T& element);
@@ -31,8 +34,8 @@
 				T& get(uint index);
 				T& getFirst();
 				T& getLast();
-				uint indexOf(T& element);
-				uint lastIndexOf(T& element);
+				int indexOf(T& element);
+				int lastIndexOf(T& element);
 				T& remove();
 				T& remove(uint index);
 				bool remove(T& element);
@@ -41,8 +44,129 @@
 				T& set(uint index, T& element);
 				uint size()
 
-				operator=(LinkedList<T>& newList);
+				LinkedList<T>& operator=(LinkedList<T>& newList);
 		};
+
+		template <typename T>
+		LinkedList<T>::LinkedList()
+		{
+		}
+
+		template <typename T>
+		LinkedList<T>::~LinkedList()
+		{
+		}
+		
+		template <typename T>
+		bool LinkedList<T>::add(T& element)
+		{
+			return true;
+		}
+
+		template <typename T>
+		void LinkedList<T>::insert(uint index, T& element)
+		{
+		}
+
+		template <typename T>
+		void LinkedList<T>::append(T& element)
+		{
+		}
+
+		template <typename T>
+		void LinkedList<T>::clear()
+		{
+		}
+
+		template <typename T>
+		bool LinkedList<T>::contains(T& element)
+		{
+			return false;
+		}
+
+		template <typename T>
+		T& LinkedList<T>::element()
+		{
+			return _head;
+		}
+
+		template <typename T>
+		T& LinkedList<T>::get(uint index)
+		{
+			return _head;
+		}
+
+		template <typename T>
+		T& LinkedList<T>::getFirst()
+		{
+			return _head;
+		}
+
+		template <typename T>
+		T& LinkedList<T>::getLast()
+		{
+			return _tail;
+		}
+
+		template <typename T>
+		int LinkedList<T>::indexOf(T& element)
+		{
+			return -1;
+		}
+		
+		template <typename T>
+		int LinkedList<T>::lastIndexOf(T& element)
+		{
+			return -1;
+		}
+		
+		template <typename T>
+		T& LinkedList<T>::remove()
+		{
+			return _head;
+		}
+		
+		template <typename T>
+		T& LinkedList<T>::remove(uint index)
+		{
+			return _head;
+		}
+		
+		template <typename T>
+		bool LinkedList<T>::remove(T& element)
+		{
+			return false;
+		}
+		
+		template <typename T>
+		T& LinkedList<T>::removeLast()
+		{
+			return _head;
+		}
+		
+		template <typename T>
+		bool LinkedList<T>::removeLastOccurrence(T& element)
+		{
+			return false;
+		}
+		
+		template <typename T>
+		T& LinkedList<T>::set(uint index, T& element)
+		{
+			return _head;
+		}
+		
+		template <typename T>
+		uint LinkedList<T>::size()
+		{
+			return _size;
+		}
+
+		template <typename T>
+		LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>& newList)
+		{
+			return *this;
+		}
 	}
 
 #endif
