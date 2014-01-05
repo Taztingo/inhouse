@@ -21,8 +21,8 @@
 				Node<T>* getNextNode();
 				Node<T>* getPreviousNode();
 				void setElement(const T& element);
-				void setNextNode(Node<T>& nextNode);
-				void setPreviousNode(Node<T>& previousNode);
+				void setNextNode(Node<T>* nextNode);
+				void setPreviousNode(Node<T>* previousNode);
 		};
 
 		template <class T>
@@ -78,15 +78,15 @@
 		}
 
 		template <class T>
-		void Node<T>::setNextNode(Node<T>& nextNode)
+		void Node<T>::setNextNode(Node<T>* nextNode)
 		{
-			_nextNode = &nextNode;
+			_nextNode = nextNode;
 		}
 	
 		template <class T>
-		void Node<T>::setPreviousNode(Node<T>& previousNode)
+		void Node<T>::setPreviousNode(Node<T>* previousNode)
 		{
-			_previousNode = &previousNode;
+			_previousNode = previousNode;
 		}
 	}
 #endif
