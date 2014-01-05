@@ -33,16 +33,16 @@
 				uint getSize();
 				uint getCapacity();
 				uint getMemoryUsage();
-				void set(uint index, T value);
-				bool add(T element);
-				void insert(uint index, T element);
+				void set(uint index, T& value);
+				bool add(T& element);
+				void insert(uint index, T& element);
 				T& remove(uint index);
-				bool removeElement(T element);
+				bool removeElement(T& element);
 				void clear();
 				String toString();
-				int indexOf(T element);
+				int indexOf(T& element);
 				void ensureCapacity(uint minimum);
-				bool contains(T element);
+				bool contains(T& element);
 				void trimToSize();
 				T& get(uint index);
 				T& operator[](uint index);
@@ -96,7 +96,7 @@
 		}
 
 		template<class T>
-		void DynamicArray<T>::set(uint index, T value)
+		void DynamicArray<T>::set(uint index, T& value)
 		{
 			errorIf(_array == nullptr, "Array is null.");
 			errorIf(_array >= _size, "Index out of bounds.");
@@ -104,7 +104,7 @@
 		}
 
 		template<class T>
-		bool DynamicArray<T>::add(T element)
+		bool DynamicArray<T>::add(T& element)
 		{
 			errorIf(_array == nullptr, "Cannot add to null array.");
 
@@ -120,7 +120,7 @@
 		}
 
 		template<class T>
-		void DynamicArray<T>::insert(uint index, T element)
+		void DynamicArray<T>::insert(uint index, T& element)
 		{
 			errorIf(_array == nullptr, "Cannot add to null array.");
 
@@ -159,7 +159,7 @@
 		}
 
 		template<class T>
-		bool DynamicArray<T>::removeElement(T element)
+		bool DynamicArray<T>::removeElement(T& element)
 		{
 			errorIf(_array == nullptr, "Cannot remove from null array.");
 
@@ -188,7 +188,7 @@
 		}
 
 		template<class T>
-		int DynamicArray<T>::indexOf(T element)
+		int DynamicArray<T>::indexOf(T& element)
 		{
 			errorIf(_array == nullptr, "Array is null.");
 
@@ -215,7 +215,7 @@
 		}
 
 		template<class T>
-		bool DynamicArray<T>::contains(T element)
+		bool DynamicArray<T>::contains(T& element)
 		{
 			errorIf(_array == nullptr, "Array is null.");
 
