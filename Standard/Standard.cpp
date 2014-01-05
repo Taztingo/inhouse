@@ -1,7 +1,11 @@
 #include "../String/String.h"
 #include "Standard.h"
+#include "../Common/Color.h"
 #include <unistd.h>
 #include <assert.h>
+
+using namespace inhouse;
+using namespace Color;
 
 namespace inhouse
 {
@@ -67,11 +71,13 @@ namespace inhouse
 	void errorIf(bool test, const char* string)
 	{
 		String errorStatement = "An error has occurred: ";
+		String color = "red";
+		String errorMessage = string;
 		
 		if(test)
 		{
-			print(errorStatement);
-			println(string);
+			print(colorText(errorStatement, color));
+			println(colorText(errorMessage, color));
 		}
 
 		assert(!test);
