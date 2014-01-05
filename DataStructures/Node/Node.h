@@ -1,7 +1,5 @@
 #ifndef NODE_H_
 	#define NODE_H_
-	
-	#include "../../Standard/Standard.h"
 
 	namespace inhouse
 	{
@@ -19,13 +17,11 @@
 				virtual ~Node();
 
 				T& getElement();
-				Node<T>& getNextNode();
-				Node<T>& getPreviousNode();
+				Node<T>* getNextNode();
+				Node<T>* getPreviousNode();
 				void setElement(T& element);
 				void setNextNode(Node<T>& nextNode);
 				void setPreviousNode(Node<T>& previousNode);
-				bool hasPreviousNode();
-				bool hasNextNode();
 		};
 
 		template <class T>
@@ -55,17 +51,15 @@
 		}
 
 		template <class T>
-		Node<T>& Node<T>::getNextNode()
+		Node<T>* Node<T>::getNextNode()
 		{
-			errorIf(_nextNode == nullptr, "The next node is null, use hasNextNode.");
-			return *_nextNode;
+			return _nextNode;
 		}
 
 		template <class T>
-		Node<T>& Node<T>::getPreviousNode()
+		Node<T>* Node<T>::getPreviousNode()
 		{
-			errorIf(_previousNode == nullptr, "The previous node is null, use hasPreviousNode.");
-			return *_previousNode;
+			return _previousNode;
 		}
 	
 		template <class T>
@@ -84,18 +78,6 @@
 		void Node<T>::setPreviousNode(Node<T>& previousNode)
 		{
 			_previousNode = &previousNode;
-		}
-	
-		template <class T>
-		bool Node<T>::hasPreviousNode()
-		{
-			return !(_previousNode == nullptr);
-		}
-	
-		template <class T>
-		bool Node<T>::hasNextNode()
-		{
-			return !(_nextNode == nullptr);
 		}
 	}
 #endif
