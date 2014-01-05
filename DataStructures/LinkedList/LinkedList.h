@@ -109,13 +109,14 @@
 		template <typename T>
 		bool LinkedList<T>::insert(uint index, const T& element)
 		{
+			errorIf(index > _size, "Index out of bounds.");
 			Node<T>* newNode;
 
 			if(index == 0)
 			{
 				return add(element);
 			}
-			else if(index >= _size)
+			else if(index == _size)
 			{
 				return append(element);
 			}
@@ -148,6 +149,23 @@
 		template <typename T>
 		bool LinkedList<T>::append(const T& element)
 		{
+			if(_size == 0)
+			{
+				return add(element);
+			}
+			else
+			{
+				Node<T>* nodeAtIndex = getNodeAt(_size - 1);
+				Node<T>* newNode = new Node<T>(element);
+				
+				nodeAtIndex->setNextNode(*newNode);
+				newNode->setPreviousNode(*nodeAtIndex);
+				_tail = newNode;
+
+				_size++;
+				return true;
+			}
+
 			return false;
 		}
 
