@@ -171,6 +171,10 @@
 		template <typename T>
 		void LinkedList<T>::clear()
 		{
+			while(_size)
+			{
+				remove();
+			}
 		}
 
 		template <typename T>
