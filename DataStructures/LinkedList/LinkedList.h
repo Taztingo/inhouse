@@ -108,7 +108,6 @@
 		template <typename T>
 		bool LinkedList<T>::insert(uint index, const T& element)
 		{
-			errorIf(index > _size, "Index out of bounds.");
 			Node<T>* newNode;
 
 			if(index == 0)
@@ -198,6 +197,7 @@
 		template <typename T>
 		T& LinkedList<T>::get(uint index)
 		{
+			errorIf(index >= _size, "Index out of bounds.");
 			return getNodeAt(index)->getElement();
 		}
 
@@ -281,6 +281,7 @@
 		template <typename T>
 		T& LinkedList<T>::remove(uint index)
 		{
+			errorIf(index >= _size, "Index out of bounds.");
 			errorIf(_size == 0, "Cannot remove from empty LinkedList.");
 			
 			if(index == 0)
@@ -417,6 +418,7 @@
 		template <typename T>
 		T LinkedList<T>::set(uint index, const T& element)
 		{
+			errorIf(index >= _size, "Index out of bounds.");
 			Node<T>* node = getNodeAt(index);
 			T oldElement = node->getElement();
 			node->setElement(element);
