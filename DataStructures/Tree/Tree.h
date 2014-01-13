@@ -34,9 +34,9 @@
 				T& removeChild(uint nodeIndex, uint child);
 				bool isLeaf();
 				
-				Tree& operator=(Tree& tree);
-				bool operator==(Tree& tree);
-				bool operator!=(Tree& tree);
+				Tree<T>& operator=(Tree<T>& tree);
+				bool operator==(Tree<T>& tree);
+				bool operator!=(Tree<T>& tree);
 		};
 
 		template <typename T>
@@ -59,6 +59,7 @@
 		template <typename T>
 		T& Tree<T>::getChild(uint nodeIndex, uint child)
 		{
+			return _tree[0];
 		}
 
 		template <typename T>
@@ -69,51 +70,64 @@
 		template <typename T>
 		String Tree<T>::toString()
 		{
+			return traverseInOrder();
 		}
 
 		template <typename T>
 		uint Tree<T>::getSize(uint nodeIndex)
 		{
+			return 0;
 		}
 
 		template <typename T>
 		String Tree<T>::traverseInOrder()
 		{
+			String string = "";
+			return string;
 		}
 
 		template <typename T>
 		String Tree<T>::traversePreOrder()
 		{
+			String string = "";
+			return string;
 		}
 
 		template <typename T>
 		String Tree<T>::traversePostOrder()
 		{
+			String string = "";
+			return string;
 		}
 
 		template <typename T>
-		T& Tree<T>::removeChild(uint nodeIndex, uint child);
+		T& Tree<T>::removeChild(uint nodeIndex, uint child)
 		{
+			return _tree[0];
 		}
 		
 		template <typename T>
 		bool Tree<T>::isLeaf()
 		{
+			return false;
 		}
 
 		template <typename T>
-		bool Tree<T>::operator=(Tree& tree)
+		Tree<T>& Tree<T>::operator=(Tree<T>& tree)
 		{
+			return *this;
 		}
 
 		template <typename T>
-		bool Tree<T>::operator==(Tree& tree)
+		bool Tree<T>::operator==(Tree<T>& tree)
 		{
+			return false;
 		}
 
 		template <typename T>
-		bool Tree<T>::operator!=(Tree& tree)
+		bool Tree<T>::operator!=(Tree<T>& tree)
 		{
+			return !operator=(tree);
 		}
 	}
 
