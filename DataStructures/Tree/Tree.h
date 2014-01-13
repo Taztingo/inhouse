@@ -15,35 +15,58 @@
 		template <class T>
 		class Tree
 		{
-			private:
+			protected:
 				DynamicArray<T> _tree;
 				uint _children;
-				uint _size;
+
 
 			public:
 				Tree();
 				Tree(uint children);
 				~Tree();
+				T& getChild(uint nodeIndex, uint child);
+				void setChild(uint nodeIndex, uint child, T& element);
+				String toString();
+				uint getSize(uint nodeIndex);
+				String traverseInOrder();
+				String traversePreOrder();
+				String traversePostOrder();
+				T& removeChild(uint nodeIndex, uint child);
+				bool isLeaf();
+				
+				Tree& operator=(Tree& tree);
+				bool operator==(Tree& tree);
+				bool operator!=(Tree& tree);
 		};
 
 		template <typename T>
 		Tree<T>::Tree()
 		{
 			_children = 2;
-			_size = 0;
 		}
 
 		template <typename T>
 		Tree<T>::Tree(uint children)
 		{
 			_children = children;
-			_size = 0;
 		}
 
 		template <typename T>
 		Tree<T>::~Tree()
 		{
 		}
+				T& getChild(uint nodeIndex, uint child);
+				void setChild(uint nodeIndex, uint child, T& element);
+				String toString();
+				uint getSize(uint nodeIndex);
+				String traverseInOrder();
+				String traversePreOrder();
+				String traversePostOrder();
+				T& removeChild(uint nodeIndex, uint child);
+				bool isLeaf();
+				operator=(Tree& tree);
+				operator==(Tree& tree);
+				operator!=(Tree& tree);
 	}
 
 #endif
