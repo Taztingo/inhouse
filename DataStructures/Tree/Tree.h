@@ -29,11 +29,15 @@
 		template <typename T>
 		Tree<T>::Tree()
 		{
+			_children = 2;
+			_size = 0;
 		}
 
 		template <typename T>
 		Tree<T>::Tree(uint children)
 		{
+			_children = children;
+			_size = 0;
 		}
 
 		template <typename T>
