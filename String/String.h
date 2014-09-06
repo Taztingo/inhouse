@@ -21,6 +21,7 @@
 				String(const char* string);
 				String(const String& string);
 				String(const int& integer);
+				String(const uint& integer);
 				~String();
 			
 				char& charAt(uint index);
@@ -48,10 +49,12 @@
 				String operator+(const String& string);
 				String operator+(const char* string);
 				String operator+(int integer);
+				String operator+(uint integer);
 				String operator+(bool boolean);
 				void operator+=(const String& string);
 				void operator+=(const char* string);
 				void operator+=(int integer);
+				void operator+=(uint integer);
 				void operator+=(bool boolean);
 				char& operator[](uint index);
 				String& operator=(const String& string);

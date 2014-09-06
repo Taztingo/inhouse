@@ -43,6 +43,15 @@ namespace inhouse
 		_string = new char[string.length() + 1];
 		memMove(_string, string.toString(), sizeof(char) * (_length+1));
 	}
+	
+	String::String(const uint& integer)
+	{
+		String string(itoa(integer));
+		_length = string.length();
+
+		_string = new char[string.length() + 1];
+		memMove(_string, string.toString(), sizeof(char) * (_length+1));
+	}
 
 	String::~String()
 	{
@@ -355,6 +364,12 @@ namespace inhouse
 		String string = itoa(integer);
 		return operator+(string);
 	}
+	
+	String String::operator+(uint integer)
+	{
+		String string = itoa(integer);
+		return operator+(string);
+	}
 
 	String String::operator+(bool boolean)
 	{
@@ -402,6 +417,11 @@ namespace inhouse
 	}
 	
 	void String::operator+=(int integer)
+	{
+		operator=(operator+(integer));
+	}
+	
+	void String::operator+=(uint integer)
 	{
 		operator=(operator+(integer));
 	}
