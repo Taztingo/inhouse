@@ -59,22 +59,7 @@ namespace inhouse
 
 	bool UnitTest::operator==(UnitTest& unitTest)
 	{
-		if(_functionPointer != unitTest._functionPointer)
-		{
-			return false;
-		}
-
-		if(_timestamp != unitTest._timestamp)
-		{
-			return false;
-		}
-
 		if(_name != unitTest._name)
-		{
-			return false;
-		}
-
-		if(_result != unitTest._result)
 		{
 			return false;
 		}
