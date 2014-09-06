@@ -31,6 +31,7 @@ namespace inhouse
 
 	void FeatureSuite::runTests()
 	{
+		createTimestamp();
 	}
 
 	uint FeatureSuite::getPassed()
@@ -40,7 +41,7 @@ namespace inhouse
 
 	uint FeatureSuite::getFailed()
 	{
-		return 0;
+		return _tests.getSize() - _passedTests;
 	}
 
 	String& FeatureSuite::getTimestamp()
@@ -73,5 +74,7 @@ namespace inhouse
 	
 	void FeatureSuite::createTimestamp()
 	{
+		std::time_t epochTime = std::time(nullptr);
+		_timestamp = std::asctime(std::localtime(&epochTime));
 	}
 }
