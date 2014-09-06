@@ -54,12 +54,18 @@ namespace inhouse
 		return _name;
 	}
 
-	void FeatureSuite::addTest(String& testName, FunctionPointer)
+	void FeatureSuite::addTest(String& testName, FunctionPointer functionPointer)
 	{
+		UnitTest unitTest(testName, functionPointer);
+		errorIf(_tests.contains(unitTest), "A test with that name already exists!");
+		_tests.add(unitTest);
 	}
 
 	void FeatureSuite::removeTest(String& testName)
 	{
+		UnitTest unitTest(testName);
+		errorIf(!_tests.contains(unitTest), "A text with that name doesn't exist!");
+		_tests.removeElement(unitTest);
 	}
 
 	FeatureSuite& FeatureSuite::operator=(const FeatureSuite& featureSuite)

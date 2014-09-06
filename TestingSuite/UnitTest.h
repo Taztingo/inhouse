@@ -20,6 +20,7 @@ namespace inhouse
 			UnitTest();
 			UnitTest(const String& testName, FunctionPointer functionPointer);
 			UnitTest(const UnitTest& unitTest);
+			UnitTest(const String& testName);
 			void runTest();
 			bool getResult();
 			String& getTimestamp();

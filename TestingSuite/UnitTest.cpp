@@ -26,6 +26,13 @@ namespace inhouse
 		_name = unitTest._name;
 		_result = unitTest._result;
 	}
+	
+	UnitTest::UnitTest(const String& testName)
+	{
+		_timestamp = "";
+		_name = testName;
+		_result = false;
+	}
 
 	void UnitTest::runTest()
 	{
