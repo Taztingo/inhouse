@@ -2,9 +2,9 @@
 #define FEATURE_SUITE_H_
 
 #include "../String/String.h"
-#include "../Common/Common.h"
+#include "../Common/Type.h"
 #include "UnitTest.h"
-#include "../DynamicArray/DynamicArray.h"
+#include "../DataStructures/DynamicArray/DynamicArray.h"
 #include <ctime>
 
 namespace inhouse
@@ -12,6 +12,7 @@ namespace inhouse
 	class FeatureSuite
 	{
 		private:
+			typedef bool(*FunctionPointer)();
 			DynamicArray<UnitTest> _tests;
 			String _timestamp;
 			String _name;
@@ -27,7 +28,7 @@ namespace inhouse
 			uint getFailed();
 			String& getTimestamp();
 			String& getName();
-			void addTest(String& testName, UnitTest::FunctionPointer);
+			void addTest(String& testName, FunctionPointer);
 			void removeTest(String& testName);
 			FeatureSuite& operator=(const FeatureSuite& featureSuite);
 			bool operator==(FeatureSuite& featureSuite);

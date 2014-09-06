@@ -1,7 +1,8 @@
 #include "../String/String.h"
-#include "../Common/Common.h"
+#include "../Common/Type.h"
 #include "UnitTest.h"
-#include "../DynamicArray/DynamicArray.h"
+#include "FeatureSuite.h"
+#include "../DataStructures/DynamicArray/DynamicArray.h"
 #include <ctime>
 
 namespace inhouse
@@ -42,7 +43,7 @@ namespace inhouse
 		return _name;
 	}
 
-	void FeatureSuite::addTest(String& testName, UnitTest::FunctionPointer)
+	void FeatureSuite::addTest(String& testName, FunctionPointer)
 	{
 	}
 
@@ -64,5 +65,3 @@ namespace inhouse
 	{
 	}
 }
-
-#endif
