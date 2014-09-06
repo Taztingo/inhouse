@@ -40,7 +40,7 @@ namespace inhouse
 		_result = _functionPointer();
 	}
 
-	bool UnitTest::getResult()
+	bool UnitTest::hasPassed()
 	{
 		return _result;
 	}

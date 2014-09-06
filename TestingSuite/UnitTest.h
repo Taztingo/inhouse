@@ -22,7 +22,7 @@ namespace inhouse
 			UnitTest(const UnitTest& unitTest);
 			UnitTest(const String& testName);
 			void runTest();
-			bool getResult();
+			bool hasPassed();
 			String& getTimestamp();
 			String& getName();
 			UnitTest& operator=(const UnitTest& unitTest);
