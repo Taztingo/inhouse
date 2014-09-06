@@ -64,7 +64,7 @@ namespace inhouse
 	void FeatureSuite::removeTest(String& testName)
 	{
 		UnitTest unitTest(testName);
-		errorIf(!_tests.contains(unitTest), "A text with that name doesn't exist!");
+		errorIf(!_tests.contains(unitTest), "A test with that name doesn't exist!");
 		_tests.removeElement(unitTest);
 	}
 
