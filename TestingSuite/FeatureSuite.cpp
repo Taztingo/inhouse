@@ -3,6 +3,7 @@
 #include "UnitTest.h"
 #include "FeatureSuite.h"
 #include "../DataStructures/DynamicArray/DynamicArray.h"
+#include "../Common/Color.h"
 #include <ctime>
 
 namespace inhouse
@@ -32,6 +33,45 @@ namespace inhouse
 	void FeatureSuite::runTests()
 	{
 		createTimestamp();
+		_passedTests = 0;
+		print("Starting tests for: ");
+		println(Color::colorText(_name, "blue"));
+
+		for(uint i = 0; i < _tests.getSize(); i++)
+		{
+			String output;
+			_tests[i].runTest();
+			output += "\t";
+			output += _tests[i].getName();
+			output += " ";
+
+			if(_tests[i].hasPassed())
+			{
+				output += "passed";
+				output = Color::colorText(output, "green");
+				_passedTests++;
+			}
+			else
+			{
+				output += "failed";
+				output = Color::colorText(output, "red");
+			}
+
+			println(output);
+		}
+
+		String passed = "Passed: ";
+		passed += getPassed();
+		passed = Color::colorText(passed, "green");
+		
+		String failed = "Failed: ";
+		failed += getFailed();
+		failed = Color::colorText(failed, "red");
+		
+		String output = passed;
+		output += " / ";
+		output += failed;
+		println(output);
 	}
 
 	uint FeatureSuite::getPassed()
