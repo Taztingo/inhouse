@@ -68,13 +68,22 @@ namespace inhouse
 		_tests.removeElement(unitTest);
 	}
 
-	FeatureSuite& FeatureSuite::operator=(const FeatureSuite& featureSuite)
+	FeatureSuite& FeatureSuite::operator=(FeatureSuite& featureSuite)
 	{
+		_tests = featureSuite._tests;
+		_timestamp = featureSuite._timestamp;
+		_name = featureSuite._name;
+		_passedTests = featureSuite._passedTests;
 		return *this;
 	}
 
 	bool FeatureSuite::operator==(FeatureSuite& featureSuite)
 	{
+		if(_name != featureSuite._name)
+		{
+			return false;
+		}
+
 		return true;
 	}
 	

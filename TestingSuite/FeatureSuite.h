@@ -30,7 +30,7 @@ namespace inhouse
 			String& getName();
 			void addTest(String& testName, FunctionPointer);
 			void removeTest(String& testName);
-			FeatureSuite& operator=(const FeatureSuite& featureSuite);
+			FeatureSuite& operator=(FeatureSuite& featureSuite);
 			bool operator==(FeatureSuite& featureSuite);
 	};
 }
