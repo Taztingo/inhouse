@@ -9,14 +9,24 @@ namespace inhouse
 {
 	FeatureSuite::FeatureSuite()
 	{
+		_name = "";
+		_timestamp = "";
+		_passedTests = 0;
 	}
 
 	FeatureSuite::FeatureSuite(const String& featureName)
 	{
+		_name = featureName;
+		_timestamp = "";
+		_passedTests = 0;
 	}
 
-	FeatureSuite::FeatureSuite(const FeatureSuite& feature)
+	FeatureSuite::FeatureSuite(FeatureSuite& feature)
 	{
+		_tests = feature._tests;
+		_timestamp = feature._timestamp;
+		_name = feature._name;
+		_passedTests = feature._passedTests;
 	}
 
 	void FeatureSuite::runTests()
@@ -25,7 +35,7 @@ namespace inhouse
 
 	uint FeatureSuite::getPassed()
 	{
-		return 0;
+		return _passedTests;
 	}
 
 	uint FeatureSuite::getFailed()

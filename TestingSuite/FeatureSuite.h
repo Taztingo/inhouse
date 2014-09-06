@@ -22,7 +22,7 @@ namespace inhouse
 		public:
 			FeatureSuite();
 			FeatureSuite(const String& featureName);
-			FeatureSuite(const FeatureSuite& feature);
+			FeatureSuite(FeatureSuite& feature);
 			void runTests();
 			uint getPassed();
 			uint getFailed();
