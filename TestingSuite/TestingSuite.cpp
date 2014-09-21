@@ -9,6 +9,8 @@ namespace inhouse
 {
 	void TestingSuite::createTimestamp()
 	{
+		std::time_t epochTime = std::time(nullptr);
+		_timestamp = std::asctime(std::localtime(&epochTime));
 	}
 
 	void TestingSuite::printResults()
@@ -17,10 +19,13 @@ namespace inhouse
 
 	TestingSuite::TestingSuite()
 	{
+		_timestamp = "";
 	}
 
-	TestingSuite::TestingSuite(const TestingSuite& testingSuite)
+	TestingSuite::TestingSuite(TestingSuite& testingSuite)
 	{
+		_timestamp = testingSuite._timestamp;
+		_suites = testingSuite._suites;
 	}
 
 	TestingSuite::~TestingSuite()

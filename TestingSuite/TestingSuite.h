@@ -20,7 +20,7 @@ namespace inhouse
 			void printResults();
 		public:
 			TestingSuite();
-			TestingSuite(const TestingSuite& testingSuite);
+			TestingSuite(TestingSuite& testingSuite);
 			~TestingSuite();
 			void runTests();
 			void runTests(const DynamicArray<String>& suiteNames);
