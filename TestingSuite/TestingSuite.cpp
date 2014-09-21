@@ -34,6 +34,7 @@ namespace inhouse
 
 	void TestingSuite::runTests()
 	{
+		createTimestamp();
 		for(uint i = 0; i < _suites.getSize(); i++)
 		{
 			_suites[i].runTests();
@@ -42,6 +43,7 @@ namespace inhouse
 
 	void TestingSuite::runTests(DynamicArray<String>& suiteNames)
 	{
+		createTimestamp();
 		for(uint i = 0; i < suiteNames.getSize(); i++)
 		{
 			FeatureSuite tempSuite(suiteNames[i]);
