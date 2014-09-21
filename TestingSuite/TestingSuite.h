@@ -26,7 +26,7 @@ namespace inhouse
 			void runTests(DynamicArray<String>& suiteNames);
 			void addFeatureSuite(String& suiteName);
 			void removeFeatureSuite(String& suiteName);
-			TestingSuite& operator=(const TestingSuite& testingSuite);
+			TestingSuite& operator=(TestingSuite& testingSuite);
 			bool operator==(TestingSuite& testingSuite);
 	};
 }

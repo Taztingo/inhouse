@@ -71,8 +71,10 @@ namespace inhouse
 		_suites.removeElement(newSuite);
 	}
 
-	TestingSuite& TestingSuite::operator=(const TestingSuite& testingSuite)
+	TestingSuite& TestingSuite::operator=(TestingSuite& testingSuite)
 	{
+		_timestamp = testingSuite._timestamp;
+		_suites = testingSuite._suites;
 		return *this;
 	}
 
