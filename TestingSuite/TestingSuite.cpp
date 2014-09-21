@@ -62,8 +62,11 @@ namespace inhouse
 		_suites.add(newSuite);
 	}
 
-	void TestingSuite::removeFeatureSuite(const String& suiteName)
+	void TestingSuite::removeFeatureSuite(String& suiteName)
 	{
+		FeatureSuite newSuite(suiteName);
+		errorIf(!_suites.contains(newSuite), "A suite with that name doesn't exist.");
+		_suites.removeElement(newSuite);
 	}
 
 	TestingSuite& TestingSuite::operator=(const TestingSuite& testingSuite)
