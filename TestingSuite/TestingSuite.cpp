@@ -34,10 +34,25 @@ namespace inhouse
 
 	void TestingSuite::runTests()
 	{
+		for(uint i = 0; i < _suites.getSize(); i++)
+		{
+			_suites[i].runTests();
+		}
 	}
 
-	void TestingSuite::runTests(const DynamicArray<String>& suiteNames)
+	void TestingSuite::runTests(DynamicArray<String>& suiteNames)
 	{
+		for(uint i = 0; i < suiteNames.getSize(); i++)
+		{
+			FeatureSuite tempSuite(suiteNames[i]);
+			for(uint i2 = 0; i2 < _suites.getSize(); i++)
+			{
+				if(tempSuite == _suites[i2])
+				{
+					_suites[i2].runTests();
+				}
+			}
+		}
 	}
 
 	void TestingSuite::addFeatureSuite(const String& suiteName)

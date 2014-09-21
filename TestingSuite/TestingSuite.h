@@ -23,7 +23,7 @@ namespace inhouse
 			TestingSuite(TestingSuite& testingSuite);
 			~TestingSuite();
 			void runTests();
-			void runTests(const DynamicArray<String>& suiteNames);
+			void runTests(DynamicArray<String>& suiteNames);
 			void addFeatureSuite(const String& suiteName);
 			void removeFeatureSuite(const String& suiteName);
 			TestingSuite& operator=(const TestingSuite& testingSuite);
