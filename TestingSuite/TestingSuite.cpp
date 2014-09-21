@@ -51,12 +51,15 @@ namespace inhouse
 				{
 					_suites[i2].runTests();
 				}
-			}
+			} 
 		}
 	}
 
-	void TestingSuite::addFeatureSuite(const String& suiteName)
+	void TestingSuite::addFeatureSuite(String& suiteName)
 	{
+		FeatureSuite newSuite(suiteName);
+		errorIf(_suites.contains(newSuite), "A suite with that name already exists.");
+		_suites.add(newSuite);
 	}
 
 	void TestingSuite::removeFeatureSuite(const String& suiteName)
