@@ -21,7 +21,7 @@ namespace inhouse
 			bool containsKey(K& key);
 			bool containsValue(V& value);
 			V remove(K& key);
-			uint size();
+			uint getSize();
 
 			bool operator==(HashMap<K,V>& hashMap);
 			HashMap& operator=(HashMap<K,V>& hashMap);
@@ -106,7 +106,7 @@ namespace inhouse
 	}
 	
 	template <class K, class V>
-	uint HashMap<K,V>::size()
+	uint HashMap<K,V>::getSize()
 	{
 		return _hashMap.getSize();
 	}
