@@ -20,7 +20,7 @@ namespace inhouse
 			void clear();
 			bool containsKey(K& key);
 			bool containsValue(V& value);
-			V& remove(K& key);
+			V remove(K& key);
 			uint size();
 
 			bool operator==(HashMap<K,V>& hashMap);
@@ -29,6 +29,7 @@ namespace inhouse
 
 		private:
 			DynamicArray<DynamicArray<Pair<K,V> > > _hashMap;
+			DynamicArray<K> _keys;
 
 			uint hash(K& key);
 	};
@@ -75,7 +76,7 @@ namespace inhouse
 	template <class K, class V>
 	bool HashMap<K,V>::containsKey(K& key)
 	{
-		return true;
+		return _keys.contains(key);
 	}
 	
 	template <class K, class V>
@@ -85,10 +86,23 @@ namespace inhouse
 	}
 	
 	template <class K, class V>
-	V& HashMap<K,V>::remove(K& key)
+	V HashMap<K,V>::remove(K& key)
 	{
-		V v;
-		return v;
+		int hashCode(key);
+		DynamicArray<Pair<K,V> > array = _hashMap[hashCode];
+		V value;
+
+		for(uint i = 0; i < array.getSize(); i++)
+		{
+			if(array[i].containsKey(key))
+			{
+				value = remove.getValue();
+				_keys.removeElement(key);
+				break;
+			}
+		}
+
+		return value;
 	}
 	
 	template <class K, class V>
@@ -126,6 +140,7 @@ namespace inhouse
 			}
 		}
 
+		_keys.add(key);
 		Pair<K,V> pair(key);
 		array.add(pair);
 
