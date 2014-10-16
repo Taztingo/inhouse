@@ -28,6 +28,8 @@ namespace inhouse
 
 		private:
 			DynamicArray<DynamicArray<Pair<K,V> > > _hashMap;
+
+			uint hash(K& key);
 	};
 
 	template <class K, class V>
@@ -102,6 +104,12 @@ namespace inhouse
 	{
 		V v;
 		return v;
+	}
+	
+	template <class K, class V>
+	uint HashMap<K,V>::hash(K& key)
+	{
+		return 0;
 	}
 }
 
