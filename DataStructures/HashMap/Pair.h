@@ -12,6 +12,8 @@ namespace inhouse
 
 			K& getKey();
 			V& getValue();
+			bool containsKey(K& key);
+			bool operator==(Pair& pair);
 
 		private:
 			K _key;
@@ -40,6 +42,27 @@ namespace inhouse
 	V& Pair<K,V>::getValue()
 	{
 		return _value;
+	}
+	
+	template <class K, class V>
+	bool Pair<K,V>::containsKey(K& key)
+	{
+		return _key == key;
+	}
+	
+	template <class K, class V>
+	bool Pair<K,V>::operator==(Pair& pair)
+	{
+		if(_key != pair._key)
+		{
+			return false;
+		}
+		else if(_value != pair._value)
+		{
+			return false;
+		}
+
+		return true;
 	}
 }
 #endif

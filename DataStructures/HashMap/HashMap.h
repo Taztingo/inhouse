@@ -54,6 +54,7 @@ namespace inhouse
 	template <class K, class V>
 	void HashMap<K,V>::clear()
 	{
+		_hashMap.clear();
 	}
 	
 	template <class K, class V>
