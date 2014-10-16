@@ -86,12 +86,14 @@ namespace inhouse
 	template <class K, class V>
 	bool HashMap<K,V>::operator==(HashMap<K,V>& hashMap)
 	{
-		return true;
+		return _hashMap == hashMap._hashMap;
 	}
 
 	template <class K, class V>
 	HashMap<K,V>& HashMap<K,V>::operator=(HashMap<K,V>& hashMap)
 	{
+		_hashMap = hashMap._hashMap;
+
 		return *this;
 	}
 
