@@ -21,6 +21,8 @@ namespace inhouse
 	template <class K, class V>
 	Pair<K,V>::Pair(K& key, V& value)
 	{
+		_key = key;
+		_value = value;
 	}
 
 	template <class K, class V>
