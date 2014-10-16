@@ -7,6 +7,8 @@ namespace inhouse
 	struct Pair
 	{
 		public:
+			Pair();
+			Pair(K& key);
 			Pair(K& key, V& value);
 			~Pair();
 
@@ -19,6 +21,17 @@ namespace inhouse
 			K _key;
 			V _value;
 	};
+	
+	template <class K, class V>
+	Pair<K,V>::Pair()
+	{
+	}
+	
+	template <class K, class V>
+	Pair<K,V>::Pair(K& key)
+	{
+		_key = key;
+	}
 
 	template <class K, class V>
 	Pair<K,V>::Pair(K& key, V& value)

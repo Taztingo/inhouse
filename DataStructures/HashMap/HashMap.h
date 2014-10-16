@@ -3,6 +3,7 @@
 
 #include "../../Common/Type.h"
 #include "../DynamicArray/DynamicArray.h"
+#include <iostream>
 #include "Pair.h"
 
 namespace inhouse
@@ -35,12 +36,23 @@ namespace inhouse
 	template <class K, class V>
 	HashMap<K,V>::HashMap()
 	{
+		for(uint i = 0; i < _hashMap.getCapacity(); i++)
+		{
+			DynamicArray<Pair<K,V> > storage;
+			_hashMap.add(storage);
+		}
 	}
 
 	template <class K, class V>
 	HashMap<K,V>::HashMap(uint capacity)
 	{
 		_hashMap.ensureCapacity(capacity);
+		
+		for(uint i = 0; i < _hashMap.getCapacity(); i++)
+		{
+			DynamicArray<Pair<K,V> > storage;
+			_hashMap.add(storage);
+		}
 	}
 
 	template <class K, class V>
@@ -102,8 +114,22 @@ namespace inhouse
 	template <class K, class V>
 	V& HashMap<K,V>::operator[](K& key)
 	{
-		V v;
-		return v;
+		int hashIndex = hash(key);
+		DynamicArray<Pair<K,V>>& array = _hashMap[hashIndex];
+
+		for(uint i = 0; i < array.getSize(); i++)
+		{
+			Pair<K,V> pair = array[i];
+			if(pair.containsKey(key))
+			{
+				return array[i].getValue();
+			}
+		}
+
+		Pair<K,V> pair(key);
+		array.add(pair);
+
+		return array[array.getSize() - 1].getValue();
 	}
 	
 	template <class K, class V>
