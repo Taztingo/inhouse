@@ -82,21 +82,35 @@ namespace inhouse
 	template <class K, class V>
 	bool HashMap<K,V>::containsValue(V& value)
 	{
-		return true;
+		for(uint i = 0; i < _keys.getSize(); i++)
+		{
+			int hashCode = hash(_keys[i]);
+			DynamicArray<Pair<K,V> >& array = _hashMap[hashCode];
+
+			for(uint i2 = 0; i2 < array.getSize(); i2++)
+			{
+				if(array[i2].getValue() == value)
+				{
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 	
 	template <class K, class V>
 	V HashMap<K,V>::remove(K& key)
 	{
 		int hashCode(key);
-		DynamicArray<Pair<K,V> > array = _hashMap[hashCode];
+		DynamicArray<Pair<K,V> >& array = _hashMap[hashCode];
 		V value;
 
 		for(uint i = 0; i < array.getSize(); i++)
 		{
 			if(array[i].containsKey(key))
 			{
-				value = remove.getValue();
+				value = array.remove(i).getValue();
 				_keys.removeElement(key);
 				break;
 			}
