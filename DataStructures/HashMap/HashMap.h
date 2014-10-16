@@ -27,7 +27,6 @@ namespace inhouse
 			V& operator[](K& key);
 
 		private:
-			uint _size;
 			DynamicArray<DynamicArray<Pair<K,V> > > _hashMap;
 	};
 
@@ -39,11 +38,13 @@ namespace inhouse
 	template <class K, class V>
 	HashMap<K,V>::HashMap(uint capacity)
 	{
+		_hashMap.ensureCapacity(capacity);
 	}
 
 	template <class K, class V>
 	HashMap<K,V>::HashMap(HashMap<K,V>& hashMap)
 	{
+		_hashMap = hashMap._hashMap;
 	}
 
 	template <class K, class V>
@@ -79,7 +80,7 @@ namespace inhouse
 	template <class K, class V>
 	uint HashMap<K,V>::size()
 	{
-		return 0;
+		return _hashMap.getSize();
 	}
 	
 	template <class K, class V>
