@@ -57,10 +57,6 @@ namespace inhouse
 		{
 			return false;
 		}
-		else if(_value != pair._value)
-		{
-			return false;
-		}
 
 		return true;
 	}
